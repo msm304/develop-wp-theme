@@ -28,7 +28,7 @@ Text Domain: develop-wp-theme
 
 /* CSS Document */
 @import url(assets/plugins/animation.css);
-@import url(assets/plugins/bootstrap.min.css);
+/* @import url(assets/plugins/bootstrap.min.css); */
 @import url(assets/plugins/daterangepicker.css);
 @import url(assets/plugins/dropzone.css);
 @import url(assets/plugins/light-box.css);
