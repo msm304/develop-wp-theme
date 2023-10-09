@@ -8502,7 +8502,7 @@ a.elio_right {
 }
 
 .customize-tab.tabs_creative .nav-link {
-    /* font-weight: 600;*/
+    /* font-weight: 600; */
     font-family: vazir-bold;
     display: block;
     padding: .8rem 1.5rem;
@@ -8621,7 +8621,7 @@ a.elio_right {
 }
 
 .nav-link {
-    font-weight: 600;
+    /* font-weight: 600; */
     display: block;
     padding: .8rem 1.5rem;
 }
@@ -12188,4 +12188,12 @@ a._cr_detail_arrow {
 
 .mr-auto {
     margin-right: auto
+}
+
+.menu-item a:hover, .menu-item a:active{
+    background-color: transparent;
+}
+
+.menu-item .dropdown-toggle:after{
+    content: unset;
 }
