@@ -42,11 +42,11 @@ $the_query = new WP_Query($args);
                     </a>
                 </div>
                 <div class="edu_data singles_items_border_bottom">
-                    <h4 class="title"><a href="<?php echo get_the_title() ?>"><?php echo get_the_title() ?></a></h4>
+                    <h4 class="title"><a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a></h4>
                     <ul class="meta d-flex mt-4">
                         <li class="d-flex align-items-center"></i><?php echo get_the_author() ?></li>
                         <li class="video d-flex align-items-center"><i class="ti-video-clapper"></i>ویدئو</li>
-                        <li class="video d-flex align-items-center"><i class="ti-eye"></i>321</li>
+                        <li class="video d-flex align-items-center"><i class="ti-eye"></i><?php echo PostVeiw::dwt_get_post_view(get_the_ID()) ?></li>
                         <li class="d-flex align-items-center"><i class="ti-calendar theme-cl"></i><?php echo get_the_date('j F ماه Y') ?></li>
                     </ul>
                 </div>
