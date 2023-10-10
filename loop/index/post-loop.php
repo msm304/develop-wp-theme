@@ -10,8 +10,24 @@ $the_query = new WP_Query($args);
         <div class="singles_items ">
             <div class="edu_cat">
                 <div class="pic">
-                    <div class="topic_level bg-info text-white">سطح : متوسط</div>
-                    <div class="topic_cat bg-warning text-white">جاوااسکریپت</div>
+                    <?php
+                    if (!empty(get_post_meta(get_the_ID(), '_dwt_post_level', true))) {
+                        switch (get_post_meta(get_the_ID(), '_dwt_post_level', true)) {
+                            case 1:
+                                echo '<div class="topic_level bg-info text-white">سطح : مقدماتی</div>';
+                                break;
+                            case 2:
+                                echo '<div class="topic_level bg-warning text-white">سطح : متوسط</div>';
+                                break;
+                            case 3:
+                                echo '<div class="topic_level bg-danger text-white">سطح : پیشرفته</div>';
+                                break;
+                        }
+                    }
+                    ?>
+                    <?php if (!empty(get_post_meta(get_the_ID(), '_dwt_post_cat', true))) : ?>
+                        <div class="topic_cat bg-secondary text-white"><?php echo get_the_category_by_ID(get_post_meta(get_the_ID(), '_dwt_post_cat', true)) ?></div>
+                    <?php endif; ?>
                     <a class="pic-main" href="<?php echo get_the_title() ?>">
                         <?php
                         if (has_post_thumbnail()) {
