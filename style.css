@@ -7626,6 +7626,9 @@ a.btn-br-more {
     margin: 0 auto;
     width: auto;
     display: table;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .page_sidebar {
