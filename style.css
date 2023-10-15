@@ -8414,6 +8414,7 @@ a.elio_right {
 .single_widgets.widget_tags ul li {
     display: inline-block;
     margin-bottom: 5px;
+    margin: 0 0 5px 5px;
 }
 
 .single_widgets.widget_tags ul li a {
@@ -12209,3 +12210,4 @@ a._cr_detail_arrow {
     justify-content: center;
     align-items: center;
 }
+
