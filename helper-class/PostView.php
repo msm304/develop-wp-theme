@@ -1,6 +1,6 @@
 <?php
 
-class PostVeiw
+class PostView
 {
     public static function dwt_set_post_view($postID)
     {

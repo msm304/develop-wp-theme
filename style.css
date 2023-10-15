@@ -12197,3 +12197,15 @@ a._cr_detail_arrow {
 .menu-item .dropdown-toggle:after{
     content: unset;
 }
+
+.cat-count{
+    float: left;
+    background: #efefef;
+    border-radius: 50%;
+    width: 29px;
+    height: 29px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

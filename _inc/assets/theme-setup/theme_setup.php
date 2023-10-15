@@ -11,7 +11,7 @@ function theme_setup()
     add_image_size('my-size', 200, 200, array('center', 'center'));
     // add nav walker menu class
     require_once get_template_directory() . '/class/nav-walker/WP_Bootstrap_Navwalker.php';
-    
+    date_default_timezone_set('Asia/Tehran');
 
 }
 add_action('after_setup_theme', 'theme_setup');

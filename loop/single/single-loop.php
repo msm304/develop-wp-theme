@@ -1,7 +1,7 @@
 <?php GoogleReferer::dwt_set_google_referer(get_the_ID(),$_SERVER['PHP_REFERER']) ?>
 <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post();
-        PostVeiw::dwt_set_post_view(get_the_ID());
+        PostView::dwt_set_post_view(get_the_ID());
     ?>
         <div class="article_detail_wrapss single_article_wrap format-standard">
             <div class="article_body_wrap">

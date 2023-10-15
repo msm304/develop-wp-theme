@@ -46,7 +46,7 @@ $the_query = new WP_Query($args);
                     <ul class="meta d-flex mt-4">
                         <li class="d-flex align-items-center"></i><?php echo get_the_author() ?></li>
                         <li class="video d-flex align-items-center"><i class="ti-video-clapper"></i>ویدئو</li>
-                        <li class="video d-flex align-items-center"><i class="ti-eye"></i><?php echo PostVeiw::dwt_get_post_view(get_the_ID()) ?></li>
+                        <li class="video d-flex align-items-center"><i class="ti-eye"></i><?php echo PostView::dwt_get_post_view(get_the_ID()) ?></li>
                         <li class="d-flex align-items-center"><i class="ti-calendar theme-cl"></i><?php echo get_the_date('j F ماه Y') ?></li>
                     </ul>
                 </div>
