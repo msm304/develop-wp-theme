@@ -9135,6 +9135,7 @@ p.description {
 
 .blog-page .article_detail_wrapss .comment-area .all-comments article .comment-details .comment-text {
     margin: 19px 0 0;
+    width: 100%;
 }
 
 .blog-page .article_detail_wrapss .comment-area .all-comments article .comment-details .comment-text p {
@@ -12214,3 +12215,39 @@ a._cr_detail_arrow {
     align-items: center;
 }
 
+.children {
+    margin-right: 40px !important;
+}
+
+/* single comment section */
+.main-comment-content {
+    display: none;
+}
+
+.commetn-pagination {
+    text-align: center;
+}
+
+.commetn-pagination .current{
+    background-color: #da0b4e;
+    color: #fff;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.commetn-pagination a.page-numbers {
+    background-color: #d1d1d1;
+    display: inline-block;
+    margin: 0 3px;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.commetn-pagination a.next,.commetn-pagination a.prev{
+    background-color: transparent;
+}

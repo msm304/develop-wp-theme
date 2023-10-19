@@ -13,4 +13,5 @@ include_once '_inc/widget/sidebar-widget.php';
 include_once '_inc/widget/CatsWidget.php';
 include_once '_inc/widget/HotPostWidget.php';
 include_once '_inc\tinymce-custom-button\tinymce-costum-button.php';
+include_once '_inc\dwt_theme_comment\comment-list.php';
 include_once 'class/breadcrumb/Breadcrumb.php';
