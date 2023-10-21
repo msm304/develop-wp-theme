@@ -24,7 +24,7 @@
                     <?php the_content() ?>
                 </div>
                 <div class="article_bottom_info">
-                    <?php get_template_part('meta-data/single/post-tag', 'post-tag') ?>
+                    <?php get_template_part('meta-data/single/post-tech-tag', '/post-tech-tag') ?>
                     <?php get_template_part('meta-data/single/post-share', 'post-share') ?>
                 </div>
                 <?php get_template_part('partials/single/pagination', 'pagination') ?>

@@ -1,6 +1,6 @@
 <?php
 $args = [
-    'post_type' => 'post',
+    'post_type' => ['post'],
     'posts_per_page' => 4,
 ];
 $the_query = new WP_Query($args);
@@ -57,3 +57,4 @@ $the_query = new WP_Query($args);
 <?php else : ?>
     <div class="alert alert-info">تاکنون مطلبق منتشر نشده است</div>
 <?php endif; ?>
+<?php $the_query->rewind_posts(); ?>

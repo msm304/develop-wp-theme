@@ -17,7 +17,7 @@ function register_custom_button_for_tinymce($buttons)
 
 function format_tinymce($in)
 {
-    $in['toolbar1'] = 'bold,hr,blockquote,video,quote';
+    $in['toolbar1'] = '';
     return $in;
 }
 

@@ -12251,3 +12251,9 @@ a._cr_detail_arrow {
 .commetn-pagination a.next,.commetn-pagination a.prev{
     background-color: transparent;
 }
+
+.main-content img {
+    border-radius: 6px;   
+    width: 100%;
+    height: auto;
+}
