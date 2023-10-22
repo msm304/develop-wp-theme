@@ -2,6 +2,7 @@
 $args = [
     'post_type' => ['tech'],
     'posts_per_page' => 3,
+    'showposts' => 3,
 ];
 $the_query = new WP_Query($args);
 ?>
@@ -11,16 +12,7 @@ $the_query = new WP_Query($args);
             <div class="articles_grid_style">
                 <div class="articles_grid_thumb">
                     <a href="<?php echo get_the_permalink() ?>">
-                        <?php
-                        if (has_post_thumbnail()) {
-                            the_post_thumbnail('', [
-                                'class' => 'img-responsive',
-                                'alt' => get_the_title()
-                            ]);
-                        } else {
-                            echo dwt_default_post_thumbnail();
-                        }
-                        ?>
+                        <?php echo dwt_post_thumbnail() ?>
                     </a>
                 </div>
                 <div class="articles_grid_caption">

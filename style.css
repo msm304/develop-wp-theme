@@ -12257,3 +12257,20 @@ a._cr_detail_arrow {
     width: 100%;
     height: auto;
 }
+
+section div .alert.alert-info{
+    width: 100%;
+}
+
+.tech-loading {
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    font-size: 40px;
+    color: #000;
+    transform: translate(-50%, -50%);
+}
+
+.tech-loading {
+    display: none;
+}

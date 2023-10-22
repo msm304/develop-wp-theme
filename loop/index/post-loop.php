@@ -1,7 +1,10 @@
 <?php
 $args = [
+    /* 'post_type' => ['post','tech'],*/
     'post_type' => ['post'],
-    'posts_per_page' => 4,
+    /*'posts_per_page' => 3,*/
+    'showposts' => 3,
+    //    'order'=>'asc'
 ];
 $the_query = new WP_Query($args);
 ?>
@@ -29,16 +32,7 @@ $the_query = new WP_Query($args);
                         <div class="topic_cat bg-secondary text-white"><?php echo get_the_category_by_ID(get_post_meta(get_the_ID(), '_dwt_post_cat', true)) ?></div>
                     <?php endif; ?>
                     <a class="pic-main" href="<?php echo get_the_title() ?>">
-                        <?php
-                        if (has_post_thumbnail()) {
-                            the_post_thumbnail('', [
-                                'class' => 'img-responsive',
-                                'alt' => get_the_title()
-                            ]);
-                        } else {
-                            echo dwt_default_post_thumbnail();
-                        }
-                        ?>
+                        <?php echo dwt_post_thumbnail() ?>
                     </a>
                 </div>
                 <div class="edu_data singles_items_border_bottom">
