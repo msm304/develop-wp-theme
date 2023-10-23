@@ -5024,7 +5024,7 @@ li.login-attri .account-drop a {
     position: absolute;
     right: 15px;
     max-width: 25px;
-    top: 1px;
+    top: 26px;
 }
 
 .input-with-icon i {
@@ -12224,11 +12224,11 @@ a._cr_detail_arrow {
     display: none;
 }
 
-.commetn-pagination {
+.theme-pagination {
     text-align: center;
 }
 
-.commetn-pagination .current{
+.theme-pagination .current{
     background-color: #da0b4e;
     color: #fff;
     display: inline-block;
@@ -12238,7 +12238,7 @@ a._cr_detail_arrow {
     border-radius: 50%;
 }
 
-.commetn-pagination a.page-numbers {
+.theme-pagination a.page-numbers {
     background-color: #d1d1d1;
     display: inline-block;
     margin: 0 3px;
@@ -12248,7 +12248,7 @@ a._cr_detail_arrow {
     border-radius: 50%;
 }
 
-.commetn-pagination a.next,.commetn-pagination a.prev{
+.theme-pagination a.next,.theme-pagination a.prev{
     background-color: transparent;
 }
 
@@ -12273,4 +12273,8 @@ section div .alert.alert-info{
 
 .tech-loading {
     display: none;
+}
+
+input.form-control.text{
+    height: 72px;
 }

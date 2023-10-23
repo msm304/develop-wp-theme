@@ -9,6 +9,7 @@ include_once 'helper-class/PostView.php';
 include_once 'helper-class/ReadEstimateTime.php';
 include_once 'helper-class/GoogleReferer.php';
 include_once 'helper-class/TimeModify.php';
+include_once 'helper-class/PostExcerpt.php';
 include_once '_inc/widget/sidebar-widget.php';
 include_once '_inc/widget/CatsWidget.php';
 include_once '_inc/widget/HotPostWidget.php';

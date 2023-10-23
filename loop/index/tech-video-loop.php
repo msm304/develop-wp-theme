@@ -3,6 +3,8 @@ add_action('wp_ajax_video', 'video');
 add_action('wp_ajax_nopriv_video', 'video');
 function video()
 {
+    if (!wp_verify_nonce($_POST['nonce']))
+        die('accecs denied !!!');
     $args = [
         'post_type' => ['tech'],
         //        'post_per_page' => 3,

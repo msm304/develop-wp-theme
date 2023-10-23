@@ -3,6 +3,8 @@ add_action('wp_ajax_new_tech', 'new_tech');
 add_action('wp_ajax_nopriv_new_tech', 'new_tech');
 function new_tech()
 {
+    if (!wp_verify_nonce($_POST['nonce']))
+        die('accecs denied !!!');
     $args = [
         'post_type' => ['tech'],
         'showposts' => 3,

@@ -4,6 +4,8 @@ add_action('wp_ajax_popular', 'popular');
 add_action('wp_ajax_nopriv_popular', 'popular');
 function popular()
 {
+    if (!wp_verify_nonce($_POST['nonce']))
+        die('accecs denied !!!');
     $args = [
         'post_type' => ['tech'],
         // 'posts_per_page' => 3,

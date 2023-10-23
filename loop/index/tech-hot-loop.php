@@ -4,6 +4,8 @@ add_action('wp_ajax_hot', 'hot');
 add_action('wp_ajax_nopriv_hot', 'hot');
 function hot()
 {
+    if(!wp_verify_nonce($_POST['nonce']))
+        die('accecs denied !!!');
     $args = [
         'post_type' => ['tech'],
         // 'posts_per_page' => 3,

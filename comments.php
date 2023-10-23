@@ -19,7 +19,7 @@
                     wp_list_comments($args)
                     ?>
                 </ul>
-                <div class="my-4 commetn-pagination">
+                <div class="my-4 theme-pagination">
                     <?php
                     paginate_comments_links(array(
                         'prev_text'  => 'قبلی',
