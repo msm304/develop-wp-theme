@@ -2,7 +2,7 @@
     <?php
     global $wp_query;
     ?>
-    <span class="badge badge-light mb-5"><span class="text-primary"><?php echo $wp_query->found_posts ?></span> مطلب یافت شده برای عبارت <span class="text-primary"><?php echo $_GET['s'] ?></span></span>
+    <span class="badge badge-light mb-5"><span class="text-primary"><?php echo '' ?></span> مطالب یافت شده برای تگ <span class="text-primary"><?php echo single_tag_title() ?></span></span>
     <div class="row">
         <!-- Cource Grid 1 -->
         <?php if (have_posts()) : ?>
@@ -46,27 +46,9 @@
                                 ?>
                             </span>
                         </div>
-
                     </div>
                 </div>
             <?php endwhile; ?>
-        <?php else : ?>
-            <div class="alert alert-info full-width text-center">نتیجه ای برای عبارت <span class="text-primary"><?php echo $_GET['s'] ?></span> یافت نشد.</div>
-            <!-- Tags Cloud -->
-            <div class="single_widgets widget_tags full-width border-0">
-                <h4 class="title">تگ ها</h4>
-                <?php if (function_exists('wp_tag_cloud')) : ?>
-                    <ul>
-                        <?php $tag_clouds = wp_tag_cloud('smallest=8&largest=14&format=array');
-                        foreach ($tag_clouds as $tag_cloud) {
-                            echo '<li>' . $tag_cloud . '</li>';
-                        }
-                        ?>
-                    </ul>
-                <?php else : ?>
-                    <div class="alert alert-warning">تگی پیدا نشد !!!</div>
-                <?php endif; ?>
-            </div>
         <?php endif; ?>
         <?php wp_reset_postdata() ?>
     </div>

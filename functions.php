@@ -16,6 +16,7 @@ include_once '_inc/widget/HotPostWidget.php';
 include_once '_inc/tinymce-custom-button/tinymce-costum-button.php';
 include_once '_inc/dwt_theme_comment/comment-list.php';
 include_once '_inc/tech-custom-post-taxonomy/tech-custom-post-type-taxonomy.php';
+include_once '_inc/modify-queries/modify-queries.php';
 include_once 'class/breadcrumb/Breadcrumb.php';
 include_once 'loop/index/tech-popular-loop.php';
 include_once 'loop/index/tech-hot-loop.php';

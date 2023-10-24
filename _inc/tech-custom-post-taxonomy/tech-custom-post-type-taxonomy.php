@@ -66,7 +66,7 @@ function dwt_register_tech_taxonomy()
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array('slug' => 'tech'),
+        'rewrite'           => array('slug' => 'tech-cat'),
     );
     register_taxonomy('tech', 'tech', $args);
     unset($args);
