@@ -3,7 +3,7 @@
                 <div class="container">
                     <nav id="navigation" class="navigation navigation-landscape">
                         <div class="nav-header">
-                            <a class="nav-brand" href="#">
+                            <a class="nav-brand" href="<?php echo site_url() ?>">
                                 <img src="<?php echo get_template_directory_uri() . '/assets/image/logo.png' ?>" class="logo" alt="" />
                             </a>
                             <div class="nav-toggle"></div>
