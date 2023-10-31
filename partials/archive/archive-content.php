@@ -6,9 +6,12 @@
 		global $wp_query;
 		?>
 		<!-- Row -->
-		<div class="row align-items-center mb-3">
-			<div class="col-lg-6 col-md-6 col-sm-12">
-				<strong><?php echo $wp_query->found_posts ?></strong> مطلب بایگانی شده
+		<div class="row align-items-center mb-3 justify-content-between">
+			<div class="d-flex justify-content-between">
+				<div class="col-lg-6 col-md-6 col-sm-12 d-flex find-post-num-title" style="flex:0 0 100%; max-width: 100%; align-items: center;">
+					مطلب بایگانی شده
+				</div>
+				<strong><span class="find-post-num" style="font-weight: bold; font-size: 18px;"><?php echo $wp_query->found_posts ?></span></strong>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-12 ordering">
 				<div class="filter_wraps">
@@ -45,7 +48,7 @@
 				<!-- Pagination -->
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 text-center">
-						<button type="button" class="btn btn-loader"><i class="ti-reload ml-3"></i> فهرست کامل آموزش ها</button>
+						<button id="load-more" type="button" class="btn btn-loader"><i class="fa fa-spin fa-spinner ml-2 load-more-loading"></i>نمایش مطالب بیشتر</button>
 					</div>
 				</div>
 

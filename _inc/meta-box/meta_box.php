@@ -10,6 +10,14 @@ function dwt_register_more_setting()
         'normal',
         'default'
     );
+    add_meta_box(
+        'dwt_post_types',
+        'نوع محتوا',
+        'dwt_post_types_html',
+        '',
+        'normal',
+        'default'
+    );
 }
 function dwt_more_setting_html($post)
 {
@@ -34,11 +42,24 @@ function dwt_more_setting_html($post)
     ?>
 <?php
 }
+function dwt_post_types_html($post)
+{
+    wp_nonce_field('post_types_nonce', 'post_types_nonces');
+?>
+    <label for="post-types" style="margin-bottom: 20px;">نوع مقاله</label>
+    <select name="post_types" id="post-types" style="width:100%; margin: 10px 0;">
+        <option value="1" <?php selected(get_post_meta($post->ID, '_dwt_post_types', true), 1) ?>>مقاله</option>
+        <option value="2" <?php selected(get_post_meta($post->ID, '_dwt_post_types', true), 2) ?>>ویدیو</option>
+        <option value="3" <?php selected(get_post_meta($post->ID, '_dwt_post_types', true), 3) ?>>پادکست</option>
+    </select>
+<?php
+}
 function save_meta_box($post_id)
 {
     $post_level_nonce = $_POST['post_level_nonces'];
     $post_cat_nonce = $_POST['post_cat'];
-    if (!wp_verify_nonce($post_level_nonce, 'post_level_nonce') && !wp_verify_nonce($post_cat_nonce, 'post_cat_nonce')) {
+    $post_types_nonce = $_POST['post_types'];
+    if (!wp_verify_nonce($post_level_nonce, 'post_level_nonce') && !wp_verify_nonce($post_cat_nonce, 'post_cat_nonce') && !wp_verify_nonce($post_types_nonce,'post_types_nonce')) {
         return $post_id;
     }
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
@@ -47,11 +68,13 @@ function save_meta_box($post_id)
     if (!current_user_can('edit_post', $post_id)) {
         return $post_id;
     }
-    if (!empty($_POST['post_level']) && !empty($_POST['post_cat'])) {
+    if (!empty($_POST['post_level']) && !empty($_POST['post_cat']) && !empty($_POST['post_types'])) {
         $post_level = sanitize_text_field($_POST['post_level']);
         $post_cat = sanitize_text_field($_POST['post_cat']);
+        $post_types = sanitize_text_field($_POST['post_types']);
         update_post_meta($post_id, '_dwt_post_level', $post_level);
         update_post_meta($post_id, '_dwt_post_cat', $post_cat);
+        update_post_meta($post_id, '_dwt_post_types', $post_types);
     }
 }
 add_action('add_meta_boxes', 'dwt_register_more_setting');

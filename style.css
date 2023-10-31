@@ -12275,6 +12275,14 @@ section div .alert.alert-info{
     display: none;
 }
 
+.load-more-loading {
+    display: none;
+}
+
+#load-more {
+    display: none;
+}
+
 input.form-control.text{
     height: 72px;
 }
