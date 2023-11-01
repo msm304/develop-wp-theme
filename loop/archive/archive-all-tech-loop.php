@@ -8,11 +8,11 @@
         'status' => 'publish',
     ];
     $the_query = new WP_Query($args);
-    query_posts($args);
+    // query_posts($args);
     update_option('_dwt_tech_post_num', $the_query->found_posts);
 
-    if (have_posts()) :
-        while (have_posts()) : the_post();
+    if ($the_query->have_posts()) :
+        while ($the_query->have_posts()) : $the_query->the_post();
             if (!empty(get_post_meta(get_the_ID(), '_dwt_post_cat', true))) {
                 $cat = '<div class="topic_cat bg-secondary text-white">' . get_the_category_by_ID(get_post_meta(get_the_ID(), '_dwt_post_cat', true)) . '</div>';
             }
@@ -76,5 +76,5 @@
 
 </div>
 <div class="text-center theme-pagination">
-    <?php the_posts_pagination() ?>
+   <?php echo Pagination::paginate($the_query,''); ?>
 </div>

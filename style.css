@@ -12250,6 +12250,7 @@ a._cr_detail_arrow {
 
 .theme-pagination a.next,.theme-pagination a.prev{
     background-color: transparent;
+    display: inline;
 }
 
 .main-content img {
