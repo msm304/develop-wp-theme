@@ -3,7 +3,7 @@ add_action('wp_ajax_dwt_filter_content', 'dwt_filter_content');
 add_action('wp_ajax_noprive_dwt_filter_content', 'dwt_filter_content');
 function dwt_filter_content()
 {
-    if(!isset($_POST['nonce']) && !wp_verify_nonce($_POST['nonce'])){
+    if (!isset($_POST['nonce']) && !wp_verify_nonce($_POST['nonce'])) {
         die('access denied');
     }
     $user_id = implode(',', $_POST['user_id']);
@@ -130,7 +130,6 @@ function dwt_filter_content()
                         break;
                 }
             }
-
             $html_output .=
                 '<div class="col-lg-4 col-md-6">
             <div class="education_block_grid">

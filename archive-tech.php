@@ -5,6 +5,5 @@
 <?php get_template_part('partials/archive/title', 'title') ?>
 <?php get_template_part('partials/archive/sidebar-search', 'sidebar-search') ?>
 <?php get_template_part('partials/archive/archive-content', 'archive-content') ?>
-
 <?php get_footer() ?>
 

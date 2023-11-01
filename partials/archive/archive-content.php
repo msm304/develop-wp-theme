@@ -8,10 +8,18 @@
 		<!-- Row -->
 		<div class="row align-items-center mb-3 justify-content-between">
 			<div class="d-flex justify-content-between">
-				<div class="col-lg-6 col-md-6 col-sm-12 d-flex find-post-num-title" style="flex:0 0 100%; max-width: 100%; align-items: center;">
-					مطلب بایگانی شده
-				</div>
-				<strong><span class="find-post-num" style="font-weight: bold; font-size: 18px;"><?php echo $wp_query->found_posts ?></span></strong>
+				<?php
+				if (is_page('technology')) : ?>
+					<div class="col-lg-6 col-md-6 col-sm-12 d-flex find-post-num-title" style="flex:0 0 100%; max-width: 100%; align-items: center;">
+						کل مطالب اخبار تکنولوژی
+					</div>
+					<strong><span class="find-post-num" style="font-weight: bold; font-size: 18px;"><?php echo get_option('_dwt_tech_post_num') ?></span></strong>
+				<?php else : ?>
+					<div class="col-lg-6 col-md-6 col-sm-12 d-flex find-post-num-title" style="flex:0 0 100%; max-width: 100%; align-items: center;">
+						تعداد مطالب بایگانی شده
+					</div>
+					<strong><span class="find-post-num" style="font-weight: bold; font-size: 18px;"><?php echo $wp_query->found_posts ?></span></strong>
+				<?php endif; ?>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-12 ordering">
 				<div class="filter_wraps">
@@ -20,7 +28,7 @@
 							<a href="javascript:void(0)" class="btn btn-theme arrow-btn filter_open" onclick="openNav()" id="open2"><span><i class="fas fa-arrow-alt-circle-right"></i></span>باکس فیلتر</a>
 						</div>
 					</div>
-					<div class="dropdown show">
+					<!-- <div class="dropdown show">
 						<a class="btn btn-custom dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							دوره های آموزشی
 						</a>
@@ -29,15 +37,17 @@
 							<a class="dropdown-item" href="#">جدید</a>
 							<a class="dropdown-item" href="#">ویژه</a>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
 		<!-- /Row -->
-
+		<?php if (is_page('technology')) {
+			get_template_part('loop/archive/archive-all-tech-loop', 'archive-all-tech-loop');
+		} else {
+			get_template_part('loop/archive/archive-loop', 'archive-loop');
+		} ?>
 		<!-- <div class="row"> -->
-
-		<?php get_template_part('loop/archive/archive-loop', 'archive-loop') ?>
 
 		<!-- </div> -->
 

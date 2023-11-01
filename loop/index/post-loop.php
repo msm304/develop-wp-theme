@@ -2,8 +2,8 @@
 $args = [
     /* 'post_type' => ['post','tech'],*/
     'post_type' => ['post'],
-    'posts_per_page' => 3,
-   /*  'showposts' => 3 */,
+    // 'posts_per_page' => 3,
+    'showposts' => 3,
     //    'order'=>'asc'
 ];
 $the_query = new WP_Query($args);

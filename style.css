@@ -12286,3 +12286,11 @@ section div .alert.alert-info{
 input.form-control.text{
     height: 72px;
 }
+
+.post-type-icon {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 50px;
+}
