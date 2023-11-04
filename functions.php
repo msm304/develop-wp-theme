@@ -24,3 +24,4 @@ include_once 'loop/index/tech-hot-loop.php';
 include_once 'loop/index/tech-video-loop.php';
 include_once 'loop/index/tech-new-loop.php';
 include_once 'loop/filter-content/filter-content-loop.php';
+include_once 'loop/archive/archive-all-loop-ajax.php';

@@ -1,4 +1,4 @@
-<?php /* Template Name: آرشیو */ ?>
+<?php /* Template Name: آرشیو مطالب تکنولوژی */ ?>
 
 <?php get_header() ?>
 <?php get_template_part('partials/nav/nav', 'nav') ?>

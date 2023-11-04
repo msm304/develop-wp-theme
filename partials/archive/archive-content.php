@@ -9,17 +9,28 @@
 		<div class="row align-items-center mb-3 justify-content-between">
 			<div class="d-flex justify-content-between">
 				<?php
-				if (is_page('technology')) : ?>
+				if (is_page('technology')) {
+					echo '
 					<div class="col-lg-6 col-md-6 col-sm-12 d-flex find-post-num-title" style="flex:0 0 100%; max-width: 100%; align-items: center;">
 						کل مطالب اخبار تکنولوژی
 					</div>
-					<strong><span class="find-post-num" style="font-weight: bold; font-size: 18px;"><?php echo get_option('_dwt_tech_post_num') ?></span></strong>
-				<?php else : ?>
+					<strong><span class="find-post-num" style="font-weight: bold; font-size: 18px;">' . get_option('_dwt_tech_post_num') . '</span></strong>
+					';
+				} elseif (is_page('post')) {
+					echo '
+					<div class="col-lg-6 col-md-6 col-sm-12 d-flex find-post-num-title" style="flex:0 0 100%; max-width: 100%; align-items: center;">
+						کل مطالب آموزشی
+					</div>
+					<strong><span class="find-post-num" style="font-weight: bold; font-size: 18px;">' . get_option('_dwt_post_num') . '</span></strong>
+					';
+				} else {
+					echo '
 					<div class="col-lg-6 col-md-6 col-sm-12 d-flex find-post-num-title" style="flex:0 0 100%; max-width: 100%; align-items: center;">
 						تعداد مطالب بایگانی شده
 					</div>
-					<strong><span class="find-post-num" style="font-weight: bold; font-size: 18px;"><?php echo $wp_query->found_posts ?></span></strong>
-				<?php endif; ?>
+					<strong><span class="find-post-num" style="font-weight: bold; font-size: 18px;">' . $wp_query->found_posts . '</span></strong>
+					';
+				} ?>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-12 ordering">
 				<div class="filter_wraps">
@@ -44,6 +55,8 @@
 		<!-- /Row -->
 		<?php if (is_page('technology')) {
 			get_template_part('loop/archive/archive-all-tech-loop', 'archive-all-tech-loop');
+		} elseif (is_page('post')) {
+			get_template_part('loop/archive/archive-all-post-loop', 'archive-all-post-loop');
 		} else {
 			get_template_part('loop/archive/archive-loop', 'archive-loop');
 		} ?>

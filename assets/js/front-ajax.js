@@ -150,4 +150,50 @@ jQuery(document).ready(function ($) {
       },
     });
   });
+// Load more for tech archive and post archive
+  $("#load-more-archive").on("click", function (e) {
+    current_page++;
+    // console.log(current_page);
+    let page_slug = $(this).data('page-slug');
+    // console.log(page_slug);
+    $.ajax({
+      url: ajax.ajaxurl,
+      type: "POST",
+      datatype: "json",
+      data: {
+        action: "dwt_more_content",
+        paged: current_page,
+        page_slug: page_slug,
+        nonce: ajax._nonce,
+      },
+      beforeSend: function () {
+        $("#filter-content-result").css("opacity", "0.3");
+        $(".load-more-loading").show();
+      },
+      success: function (response) {
+        if (response.success) {
+          // console.log(response.content);
+          if (response.content != null) {
+            if (current_page >= response.max_page) {
+              $("#load-more-archive").hide();
+            }
+            $("#filter-content-result").append(response.content);
+          } else {
+            $("#filter-content-result").html(
+              '<div class="alert alert-info">مطلبی پیدا نشد!</div>'
+            );
+          }
+        }
+      },
+      error: function (error) {
+        if (error) {
+          alert("خطایی در ارسال اطلاعات رخ داده است");
+        }
+      },
+      complete: function () {
+        $("#filter-content-result").css("opacity", "1");
+        $(".load-more-loading").hide();
+      },
+    });
+  });
 });

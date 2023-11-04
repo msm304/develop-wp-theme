@@ -22,7 +22,7 @@
 		<div class="position-relative">
 			<div class="tech-loading position-absolute"><i class="fa fa-spin fa-spinner"></i></div>
 			<div id="ajax-load-content" class="row">
-
+ 
 				<!-- Single Article -->
 				<?php get_template_part('loop/index/tech-loop', 'tech-loop') ?>
 			</div>

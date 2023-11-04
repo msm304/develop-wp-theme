@@ -1,14 +1,14 @@
 <div class="row" id="filter-content-result">
     <?php
     $args = [
-        'post_type' => ['tech'],
+        'post_type' => ['post'],
         'posts_per_page' => 3,
         'paged' => $_POST['paged'],
         'status' => 'publish',
     ];
     $the_query = new WP_Query($args);
     // query_posts($args);
-    update_option('_dwt_tech_post_num', $the_query->found_posts);
+    update_option('_dwt_post_num', $the_query->found_posts);
 
     if ($the_query->have_posts()) :
         while ($the_query->have_posts()) : $the_query->the_post();
@@ -82,7 +82,7 @@
         <!-- Pagination -->
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                <button id="load-more-archive" type="button" class="btn btn-loader" data-page-slug="technology"><i class="fa fa-spin fa-spinner ml-2 load-more-loading"></i>نمایش مطالب بیشتر</button>
+                <button id="load-more-archive" type="button" class="btn btn-loader" data-page-slug="post"><i class="fa fa-spin fa-spinner ml-2 load-more-loading"></i>نمایش مطالب بیشتر</button>
             </div>
         </div>
 

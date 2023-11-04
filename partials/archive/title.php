@@ -18,9 +18,12 @@
 							<li class="breadcrumb-item"><a href="<?php echo site_url() ?>">خانه</a></li>
 							<li class="breadcrumb-item active" aria-current="page">
 								<?php
-								if(is_page()){
+								if(is_page('technology')){
 									echo 'مطالب تکنولوژی';
-								}else{
+								}elseif(is_page('post')){
+									echo 'مطالب آموزشی';
+								}
+								else{
 									if (is_year()) {
 										echo get_the_date('Y  آرشیو مطالب سال');
 									} elseif (is_month()) {
