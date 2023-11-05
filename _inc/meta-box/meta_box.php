@@ -33,12 +33,23 @@ function dwt_more_setting_html($post)
     </select>
     <label for="">دسته بندی مطلب</label>
     <?php
-    wp_dropdown_categories([
-        'name' => 'post_cat',
-        'selected' => get_post_meta($post->ID, '_dwt_post_cat', true),
-        'show_option_all'   => 'لطفا یک گزینه را انتخاب کنید',
-        'show_count'        => 1,
-    ])
+    if ($post->post_type == 'post') {
+        wp_dropdown_categories([
+            'name' => 'post_cat',
+            'selected' => get_post_meta($post->ID, '_dwt_post_cat', true),
+            'show_option_all'   => 'لطفا یک گزینه را انتخاب کنید',
+            'show_count'        => 1,
+        ]);
+    }elseif($post->post_type == 'tech'){
+        wp_dropdown_categories([
+            'name' => 'post_cat',
+            'selected' => get_post_meta($post->ID, '_dwt_post_cat', true),
+            'show_option_all'   => 'لطفا یک گزینه را انتخاب کنید',
+            'show_count'        => 1,
+            'taxonomy' => 'tech',
+        ]); 
+    }
+
     ?>
 <?php
 }
@@ -59,7 +70,7 @@ function save_meta_box($post_id)
     $post_level_nonce = $_POST['post_level_nonces'];
     $post_cat_nonce = $_POST['post_cat'];
     $post_types_nonce = $_POST['post_types'];
-    if (!wp_verify_nonce($post_level_nonce, 'post_level_nonce') && !wp_verify_nonce($post_cat_nonce, 'post_cat_nonce') && !wp_verify_nonce($post_types_nonce,'post_types_nonce')) {
+    if (!wp_verify_nonce($post_level_nonce, 'post_level_nonce') && !wp_verify_nonce($post_cat_nonce, 'post_cat_nonce') && !wp_verify_nonce($post_types_nonce, 'post_types_nonce')) {
         return $post_id;
     }
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {

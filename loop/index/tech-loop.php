@@ -16,9 +16,11 @@ $the_query = new WP_Query($args);
                     </a>
                 </div>
                 <div class="articles_grid_caption">
-                    <h4><?php echo get_the_title() ?></h4>
-                    <div class="articles_grid_author">   
-                        <div class="articles_grid_author_img"><?php echo get_avatar(get_the_author_meta('user_email'),40) ?></div>
+                    <a href="<?php echo get_the_permalink() ?>">
+                        <h4><?php echo get_the_title() ?></h4>
+                    </a>
+                    <div class="articles_grid_author">
+                        <div class="articles_grid_author_img"><?php echo get_avatar(get_the_author_meta('user_email'), 40) ?></div>
                         <h4><?php echo get_the_author() ?></h4>
                     </div>
                 </div>

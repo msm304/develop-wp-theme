@@ -1,9 +1,12 @@
-<?php
-if (is_front_page()) : ?>
+
+<!--  if (is_front_page()) : ?>
 	<footer class="light-footer">
-	<?php else : ?>
+	<?php /* else : */  ?>
 		<footer class="dark-footer skin-dark-footer">
-		<?php endif; ?>
+		<?php /* endif */; ?>  -->
+
+		<?php echo (is_front_page()) ? '<footer class="light-footer">' : '<footer class="dark-footer skin-dark-footer">'; ?>
+
 		<!-- ============================ Footer Start ================================== -->
 
 		<div>

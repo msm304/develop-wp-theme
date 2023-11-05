@@ -8,7 +8,11 @@ class Breadcrumb
         if(is_category() || is_single() || is_archive()){
             echo '&nbsp;&#187;&nbsp;';
             // echo '<li>'.get_the_category_list('&bull;').'</li>';
-            echo '<li><a href="'.get_category_link(get_post_meta(get_the_ID(), '_dwt_post_cat', true)).'">'.get_the_category_by_ID(get_post_meta(get_the_ID(), '_dwt_post_cat', true)). '</li></a>';
+            if(get_post_meta(get_the_ID(), '_dwt_post_cat', true) == ''){
+                echo 'دسته بندی نشده';
+            }else{
+                echo '<li><a href="'.get_category_link(get_post_meta(get_the_ID(), '_dwt_post_cat', true)).'">'.get_the_category_by_ID(get_post_meta(get_the_ID(), '_dwt_post_cat', true)). '</li></a>';
+            }
                 if(is_single()){
                     echo " &nbsp;&#187;&nbsp; ";
                     the_title('<li>', '</li>', true);

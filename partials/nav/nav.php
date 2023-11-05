@@ -45,7 +45,9 @@
                             <?php if (is_user_logged_in()) : ?>
                                 <ul class="nav-menu align-to-left">
 
-                                    <li class="active"><a href="#"><img src="<?php echo get_template_directory_uri() . '/assets/image/user-1.jpg' ?>" class="circle " width="30" alt=""> پروفایل<span class="submenu-indicator"></span></a>
+                                    <li class="active"><a href="#">
+                                        <?php echo get_avatar(wp_get_current_user()->user_email, 30, '', wp_get_current_user()->display_name,['class'=>'circle']) ?>
+                                         پروفایل<span class="submenu-indicator"></span></a>
                                         <ul class="nav-dropdown nav-submenu">
                                             <li><a href="dashboard.html">پنل مدیریت<span class="submenu-indicator"></span></a>
                                                 <ul class="nav-dropdown nav-submenu">

@@ -4,6 +4,9 @@
         <li><a href="#"><span class="icons"><i class="ti-comment-alt"></i></span><?php echo get_comments_number() ?> نظر ثبت شده</a></li>
         <li><a href="#"><span class="icons"><i class="ti-eye"></i></span><?php echo PostView::dwt_get_post_view(get_the_ID()) ?> بازدید </a></li>
         <li><a href="#"><span class="icons"><i class="ti-timer"></i></span><?php echo ReadEstimateTime::dwt_read_estimate_time(get_the_content()) ?> دقیقه</a></li>
-        <li><a href="#"><span class="icons"><i class="ti-search"></i></span><?php echo GoogleReferer::dwt_get_google_referer(get_the_ID()) ?> ورودی گوگل</a></li>
+        <?php if (current_user_can('manage_options')) : ?>
+            <li><a href="#"><span class="icons"><i class="ti-search"></i></span><?php echo GoogleReferer::dwt_get_google_referer(get_the_ID()) ?> ورودی گوگل</a></li>
+            <?php edit_post_link('ویرایش', '<li><span class="icons"><i class="ti-pencil"></i>', '</span></li>','','d-inline mr-2') ?>
+        <?php endif; ?>
     </ul>
 </div>
