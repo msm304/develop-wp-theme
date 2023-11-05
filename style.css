@@ -12295,3 +12295,12 @@ input.form-control.text{
     color: #fff;
     font-size: 50px;
 }
+
+.jq-toast-single, .jq-toast-single h2{
+    font-family: IRANSans;
+    margin-top: 10px;
+}
+
+.jq-icon-error{
+    background-color: #da0b4e;
+}

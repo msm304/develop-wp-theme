@@ -8,21 +8,12 @@ function dwt_more_content()
     if (!isset($_POST['nonce']) && !wp_verify_nonce($_POST['nonce'])) {
         die('access denied');
     }
-    if($_POST['page_slug'] == 'post'){
         $args = [
-            'post_type' => ['post'],
+            'post_type' => $_POST['page_slug'],
             'posts_per_page' => 3,
             'paged' => /* $page */ $_POST['paged'],
             'status' => 'publish',
         ];
-    }elseif($_POST['page_slug'] == 'technology'){
-        $args = [
-            'post_type' => ['tech'],
-            'posts_per_page' => 3,
-            'paged' => /* $page */ $_POST['paged'],
-            'status' => 'publish',
-        ];
-    }
     // $page = (get_query_var('paged')) ? get_query_var('paged') : 1; 
     
 

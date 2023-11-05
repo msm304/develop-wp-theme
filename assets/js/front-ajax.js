@@ -43,6 +43,7 @@ jQuery(document).ready(function ($) {
     let post_term_id = [];
     let tech_term_id = [];
     let post_type = $(".post-type:checked").val();
+    let page_name = $(".page-name").val();
     $.each($(".user-id:checked"), function () {
       user_id.push($(this).val());
     });
@@ -65,6 +66,7 @@ jQuery(document).ready(function ($) {
         post_term_id: post_term_id,
         tech_term_id: tech_term_id,
         post_type: post_type,
+        page_name: page_name,
         // filter_post_query: filter_post_query,
         nonce: ajax._nonce,
       },
@@ -72,6 +74,7 @@ jQuery(document).ready(function ($) {
         $("#filter-content-result").css("opacity", "0.3");
         // $(".tech-loading").css("display", "block");
         $(".find-post-num-title").text("تعداد مطالب مرتبط به فیلتر شما:");
+        $("#load-more-archive").hide();
       },
       success: function (response) {
         if (response.success) {
@@ -111,6 +114,7 @@ jQuery(document).ready(function ($) {
   $("#load-more").on("click", function (e) {
     current_page++;
     // console.log(current_page);
+    let page_name = $(".page-name").val();
     $.ajax({
       url: ajax.ajaxurl,
       type: "POST",
@@ -118,6 +122,7 @@ jQuery(document).ready(function ($) {
       data: {
         action: "dwt_filter_content",
         paged: current_page,
+        page_name: page_name,
         nonce: ajax._nonce,
       },
       beforeSend: function () {
@@ -150,11 +155,11 @@ jQuery(document).ready(function ($) {
       },
     });
   });
-// Load more for tech archive and post archive
+  // Load more for tech archive and post archive
   $("#load-more-archive").on("click", function (e) {
     current_page++;
     // console.log(current_page);
-    let page_slug = $(this).data('page-slug');
+    let page_slug = $(this).data("page-slug");
     // console.log(page_slug);
     $.ajax({
       url: ajax.ajaxurl,
@@ -192,6 +197,60 @@ jQuery(document).ready(function ($) {
       },
       complete: function () {
         $("#filter-content-result").css("opacity", "1");
+        $(".load-more-loading").hide();
+      },
+    });
+  });
+  // Contact us ajax
+  $("#contact-form").on("submit", function (e) {
+    e.preventDefault();
+    let full_name = $("[name = full_name]").val();
+    let email = $("[name = email]").val();
+    let title = $("[name = title]").val();
+    let message = $("[name = message]").val();
+    let recaptcha = $("[name = g-recaptcha-response]").val();
+    $.ajax({
+      url: ajax.ajaxurl,
+      type: "POST",
+      datatype: "json",
+      data: {
+        action: "dwt_contact",
+        full_name: full_name,
+        email: email,
+        title: title,
+        message: message,
+        recaptcha: recaptcha,
+        // filter_post_query: filter_post_query,
+        nonce: ajax._nonce,
+      },
+      beforeSend: function () {
+        $(".load-more-loading").show();
+      },
+      success: function (response) {
+        if (response.success) {
+          $.toast({
+            text: response.message,
+            icon: "success",
+            loader: true, // Change it to false to disable loader
+            loaderBg: "#202124", // To change the background
+            bgColor: "#2ecc71",
+            textAlign: "right",
+          });
+        }
+      },
+      error: function (error) {
+        if (error) {
+          $.toast({
+            heading: "توجه !!!",
+            text: error.responseJSON.message,
+            icon: "error",
+            loader: true, // Change it to false to disable loader
+            loaderBg: "#202124", // To change the background
+            textAlign: "right",
+          });
+        }
+      },
+      complete: function () {
         $(".load-more-loading").hide();
       },
     });

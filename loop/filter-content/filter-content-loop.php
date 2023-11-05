@@ -9,16 +9,26 @@ function dwt_filter_content()
     $user_id = implode(',', $_POST['user_id']);
     // $term_id = implode(',',$_POST['term_id']);
     if (empty($_POST['post_term_id']) && empty($_POST['tech_term_id']) && empty($_POST['user_id']) && empty($_POST['post_type'])) {
+        if (!empty($_POST['page_name'])) {
+            $post_type = $_POST['page_name'];
+        } else {
+            $post_type = ['post', 'tech'];
+        }
         $args = [
-            'post_type' => ['post', 'tech'],
+            'post_type' => $post_type,
             // 'author' => $user_id,
             'posts_per_page' => 3,
             'paged' => $_POST['paged'],
         ];
     } elseif (empty($_POST['post_term_id']) && empty($_POST['tech_term_id']) && empty($_POST['user_id']) || $_POST['filter_post_query'] == '1') {
         update_option('_dwt_filter_post', '1');
+        if (!empty($_POST['page_name'])) {
+            $post_type = $_POST['page_name'];
+        } else {
+            $post_type = ['post', 'tech'];
+        }
         $args = [
-            'post_type' => ['post', 'tech'],
+            'post_type' => $post_type,
             'meta_query' => [
                 [
                     'key' => '_dwt_post_types',
@@ -34,16 +44,26 @@ function dwt_filter_content()
         || $_POST['filter_post_query'] == '2'
     ) {
         update_option('_dwt_filter_post', '2');
+        if (!empty($_POST['page_name'])) {
+            $post_type = $_POST['page_name'];
+        } else {
+            $post_type = ['post', 'tech'];
+        }
         $args = [
-            'post_type' => ['post', 'tech'],
+            'post_type' => $post_type,
             'author' => $user_id,
             'posts_per_page' => 3,
             'paged' => $_POST['paged'],
         ];
     } elseif (empty($_POST['post_term_id']) && empty($_POST['tech_term_id']) || $_POST['filter_post_query'] == '3') {
         update_option('_dwt_filter_post', '3');
+        if (!empty($_POST['page_name'])) {
+            $post_type = $_POST['page_name'];
+        } else {
+            $post_type = ['post', 'tech'];
+        }
         $args = [
-            'post_type' => ['post', 'tech'],
+            'post_type' => $post_type,
             'author' => $user_id,
             'meta_query' => [
                 'key' => '_dwt_post_types',
@@ -55,8 +75,13 @@ function dwt_filter_content()
         ];
     } elseif (empty($_POST['user_id']) || $_POST['filter_post_query']) {
         update_option('_dwt_filter_post', '4');
+        if (!empty($_POST['page_name'])) {
+            $post_type = $_POST['page_name'];
+        } else {
+            $post_type = ['post', 'tech'];
+        }
         $args = [
-            'post_type' => ['post', 'tech'],
+            'post_type' => $post_type,
             'tax_query' => [
                 'relation' => 'OR',
                 [

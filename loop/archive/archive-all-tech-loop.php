@@ -82,7 +82,7 @@
         <!-- Pagination -->
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                <button id="load-more-archive" type="button" class="btn btn-loader" data-page-slug="technology"><i class="fa fa-spin fa-spinner ml-2 load-more-loading"></i>نمایش مطالب بیشتر</button>
+                <button id="load-more-archive" type="button" class="btn btn-loader" data-page-slug="tech"><i class="fa fa-spin fa-spinner ml-2 load-more-loading"></i>نمایش مطالب بیشتر</button>
             </div>
         </div>
 

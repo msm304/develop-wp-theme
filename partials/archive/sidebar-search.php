@@ -44,39 +44,42 @@
 
 								<h4 class="side_title">دسته بندی مطالب</h4>
 								<ul class="no-ul-list mb-3">
-									<?php
-									$args = [
-										'taxonomy' => ['category']
-									];
-									$terms = get_terms($args);
+									<?php if (is_page('post') || is_archive()) : ?>
+										<?php
+										$args = [
+											'taxonomy' => ['category']
+										];
+										$terms = get_terms($args);
 
-									if (!empty($terms) && is_array($terms)) :
-										foreach ($terms as $term) :
-									?>
-											<li>
-												<input id="post-term-id-<?php echo $term->term_id ?>" class="checkbox-custom post-term-id" name="<?php echo $term->term_id ?>" type="checkbox" value="<?php echo $term->term_id ?>">
-												<label for="post-term-id-<?php echo $term->term_id ?>" class="checkbox-custom-label"><?php echo $term->name ?></label>
-											</li>
-										<?php endforeach; ?>
-									<?php else : ?>
-										<div class="alert alert-warning">دسته بندی برای مطالب اصلی وجود ندارد</div>
+										if (!empty($terms) && is_array($terms)) :
+											foreach ($terms as $term) :
+										?>
+												<li>
+													<input id="post-term-id-<?php echo $term->term_id ?>" class="checkbox-custom post-term-id" name="<?php echo $term->term_id ?>" type="checkbox" value="<?php echo $term->term_id ?>">
+													<label for="post-term-id-<?php echo $term->term_id ?>" class="checkbox-custom-label"><?php echo $term->name ?></label>
+												</li>
+											<?php endforeach; ?>
+										<?php else : ?>
+											<div class="alert alert-warning">دسته بندی برای مطالب اصلی وجود ندارد</div>
+										<?php endif; ?>
 									<?php endif; ?>
-
-									<?php
-									$args = [
-										'taxonomy' => ['tech']
-									];
-									$terms = get_terms($args);
-									if (!empty($terms) && is_array($terms)) :
-										foreach ($terms as $term) :
-									?>
-											<li>
-												<input id="tech-term-id-<?php echo $term->term_id ?>" class="checkbox-custom tech-term-id" name="<?php echo $term->term_id ?>" type="checkbox" value="<?php echo $term->term_id ?>">
-												<label for="tech-term-id-<?php echo $term->term_id ?>" class="checkbox-custom-label"><?php echo $term->name ?></label>
-											</li>
-										<?php endforeach; ?>
-									<?php else : ?>
-										<div class="alert alert-warning">دسته بندی برای اخبار تکنولوژي وجود ندارد</div>
+									<?php if (is_page('technology') || is_archive()) : ?>
+										<?php
+										$args = [
+											'taxonomy' => ['tech']
+										];
+										$terms = get_terms($args);
+										if (!empty($terms) && is_array($terms)) :
+											foreach ($terms as $term) :
+										?>
+												<li>
+													<input id="tech-term-id-<?php echo $term->term_id ?>" class="checkbox-custom tech-term-id" name="<?php echo $term->term_id ?>" type="checkbox" value="<?php echo $term->term_id ?>">
+													<label for="tech-term-id-<?php echo $term->term_id ?>" class="checkbox-custom-label"><?php echo $term->name ?></label>
+												</li>
+											<?php endforeach; ?>
+										<?php else : ?>
+											<div class="alert alert-warning">دسته بندی برای اخبار تکنولوژي وجود ندارد</div>
+										<?php endif; ?>
 									<?php endif; ?>
 								</ul>
 
@@ -102,6 +105,13 @@
 
 								<button type="submit" class="btn btn-theme full-width mb-2">فیلتر کن</button>
 								<input type="hidden" class="filter-post-query">
+								<?php
+								if (is_page('post')) {
+									echo '<input type="hidden" value="post" class="page-name">';
+								} elseif (is_page('technology')) {
+									echo '<input type="hidden" value="tech" class="page-name">';
+								}
+								?>
 							</form>
 						</div>
 

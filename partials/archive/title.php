@@ -22,6 +22,8 @@
 									echo 'مطالب تکنولوژی';
 								}elseif(is_page('post')){
 									echo 'مطالب آموزشی';
+								}elseif(is_page('contact')){
+									echo 'تماس با ما';
 								}
 								else{
 									if (is_year()) {
